@@ -1,56 +1,62 @@
 "use strict";
 
+// Declaration
+
 let score = 20;
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let highscore = 0;
 
+// Function
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
+
+const backgroundColor = function (color) {
+  document.querySelector("body").style.backgroundColor = color;
+};
+
+// Main code
 document.querySelector(".check").addEventListener("click", function () {
   let guess = Number(document.querySelector(".guess").value);
 
   console.log(guess);
 
   if (!guess) {
-    document.querySelector(".message").textContent = "No Number!";
+    displayMessage("No Number!");
   }
   // Wins game
   else if (guess === secretNumber) {
-    document.querySelector(".message").textContent = "Great guess !!!";
+    displayMessage("Great guess !!!");
     document.querySelector(".score").textContent = score;
     document.querySelector(".number").textContent = secretNumber;
-    document.querySelector("body").style.backgroundColor = "#2ff20c";
+    backgroundColor("#2ff20c");
     if (score > highscore) {
       highscore = score;
       document.querySelector(".highscore").textContent = highscore;
     }
   }
   // Guess too high
-  else if (guess > secretNumber) {
+  else if (guess !== secretNumber) {
     if (score > 0) {
       score--;
-      document.querySelector(".message").textContent = "Too High !!!";
+      displayMessage(guess > secretNumber ? "Too High !!!" : "Too Low !!!");
       document.querySelector(".score").textContent = score;
-    }
-  }
-  // Guess too low
-  else if (guess < secretNumber) {
-    if (score > 0) {
-      score--;
-      document.querySelector(".message").textContent = "Too Low !!!";
-      document.querySelector(".score").textContent = score;
+    } else if (score <= 0) {
+      displayMessage("You have lost. Try Again");
+      backgroundColor("#eb4634");
     }
   }
 });
-
 document.querySelector(".again").addEventListener("click", function () {
   //document.querySelector();
 
   // BG Color
 
-  document.querySelector("body").style.backgroundColor = "#222";
+  backgroundColor("#222");
 
   //Message
 
-  document.querySelector(".message").textContent = "Start guessing...";
+  displayMessage("Start guessing...");
   //Input
 
   document.querySelector(".guess").value = "";
