@@ -17,6 +17,11 @@ body {
 }
 
 /* LAYOUT */
+
+p {
+  font-family: "Ubuntu", sans-serif;
+}
+
 header {
   position: relative;
   height: 35vh;
@@ -47,6 +52,7 @@ main {
 h1 {
   font-size: 4rem;
   text-align: center;
+  font-family: "Roboto", sans-serif;
   position: absolute;
   width: 100%;
   top: 52%;
@@ -98,7 +104,8 @@ h1 {
   background-color: #eee;
   color: #222;
   font-size: 2rem;
-  font-family: inherit;
+  font-family: "Inconsolata", monospace;
+
   padding: 2rem 3rem;
   cursor: pointer;
 }
