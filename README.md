@@ -1,4 +1,4 @@
 # guess-my-number
 
 This is a simple games whereby you will have to guess a number between 1 and 20. It will have
-features like keeping a high score, a score, a reset button and other basic features. Got html and css from course. My focus is on the javascript.
+features like keeping a high score, a score, a reset button and other basic features. The purpose of this project was to focus on the javascript.
